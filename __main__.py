@@ -1,4 +1,4 @@
-from library.ProgramTimer import ProgramTimer
+from modules.ProgramTimer import ProgramTimer
 
 timer = ProgramTimer()
 
