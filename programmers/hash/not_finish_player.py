@@ -29,4 +29,32 @@
   "mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.
 """
 
+participant = ["mislav", "stanko", "mislav", "ana"]	
+completion = ["stanko", "ana", "mislav"]
 
+# 첫 번째 풀이
+# participant.sort()
+# completion.sort()
+
+# for index, player in enumerate(completion):
+#   if player == participant[index]:
+#     participant[index] = ''
+
+# result = list(filter(None, participant))
+
+# print(result[0])
+
+# 두 번째 풀이
+dic = {}
+for player in participant:
+  if dic.get(player):
+    dic[player] += 1
+  else:
+    dic[player] = 1
+
+for compPlayer in completion:
+  dic[compPlayer] -= 1
+  if not dic[compPlayer]:
+    del dic[compPlayer]
+
+print(list(dic)[0])
