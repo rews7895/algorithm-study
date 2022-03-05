@@ -17,10 +17,11 @@
   - 같은 전화번호가 중복해서 들어있지 않습니다.
 
 * 입출력 예제
-phone_book	                          return
-["119", "97674223", "1195524421"]	    false
-["123","456","789"]	                  true
-["12","123","1235","567","88"]	      false
+  phone_book	                          return
+  ["119", "97674223", "1195524421"]	    false
+  ["123","456","789"]	                  true
+  ["12","123","1235","567","88"]	      false
+  ["4321","432","122", "1334"]          false
 
 * 입출력 예 설명
   입출력 예 #1
@@ -31,4 +32,26 @@ phone_book	                          return
 
   입출력 예 #3
   첫 번째 전화번호, “12”가 두 번째 전화번호 “123”의 접두사입니다. 따라서 답은 false입니다.
+"""
+def calc(phone_book):
+  phoneBook = sorted(phone_book)
+
+  for p1, p2 in zip(phoneBook, phoneBook[1:]):
+    if p2.startswith(p1):
+      return False
+  return True
+
+phone_book = ["123","456","789"]
+print(calc(phone_book))
+
+"""
+! 문자열 중 특정 문자를 찾고 싶거나, 특장 문자로 시작하는 문자열, 특정 문자로 끝이 나는 문자열 등의 문자열을 찾는다.
+  - find(찾을문자, 찾기 시작할 위치)
+  - startswith(시작하는 문자, 시작 지점)
+  - endswith(끝나는 문자, 문자열의 시작, 문자열의 끝)
+txt = 'aaa'
+txt.find('a')
+
+txt.startswith('a')
+txt.endswith('a')
 """
