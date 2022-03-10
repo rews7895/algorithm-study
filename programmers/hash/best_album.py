@@ -34,3 +34,25 @@
   고유 번호 1: 600회 재생
   따라서 pop 장르의 [4, 1]번 노래를 먼저, classic 장르의 [3, 0]번 노래를 그다음에 수록합니다.
 """
+genres = ["classic", "pop", "classic", "classic", "pop"]
+plays = [500, 600, 150, 800, 2500]
+
+answer = []
+dic = {}
+for index, genre in enumerate(genres):
+  if not dic.get(genre):
+    dic[genre] = {'total': 0, 'items': []}
+  dic[genre]['total'] += plays[index]
+  dic[genre]['items'].append({'index': index, 'plays': plays[index]})
+
+dic = dict(sorted(dic.items(), key=lambda x: x[1]['total'], reverse=True))
+
+for items in dic.values():
+  innerSortItems = sorted(items['items'], key=lambda x: x['plays'], reverse=True)
+  for index, innerItem in enumerate(innerSortItems):
+    if index >= 2:
+      pass
+    else: 
+      answer.append(innerItem['index'])
+
+print(answer)
