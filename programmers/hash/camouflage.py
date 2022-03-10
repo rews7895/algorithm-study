@@ -43,4 +43,21 @@
   1. crow_mask
   2. blue_sunglasses
   3. smoky_makeup
+
+  2 + 1 
 """
+
+clothes = [["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
+value = 1
+# 딕셔너리 형으로 변환
+dicClothes = {}
+for clotheItems in clothes:
+  if not dicClothes.get(clotheItems[1]):
+    dicClothes[clotheItems[1]] = []
+  
+  dicClothes[clotheItems[1]].append(clotheItems[0])
+
+for innerDicItems in dicClothes.values():
+  value *= len(innerDicItems) + 1
+
+print(value - 1)
