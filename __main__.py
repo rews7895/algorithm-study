@@ -11,5 +11,7 @@ timer.timerStart()
 #! Hash - 3. 위장
 # from programmers.hash.camouflage import *
 #! Hash - 4. 베스트앨범
-from programmers.hash.best_album import *
+# from programmers.hash.best_album import *
+#! Stack And Queue - 1. 기능개발
+from programmers.stack_queue.func_dev import *
 timer.timerEnd()

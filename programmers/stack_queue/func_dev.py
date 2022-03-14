@@ -40,3 +40,36 @@
 
     따라서 5일째에 1개의 기능, 10일째에 3개의 기능, 20일째에 2개의 기능이 배포됩니다.
 """
+from queue import Queue
+progresses = [95, 90, 99, 99, 80, 99]
+speeds = [1, 1, 1, 1, 1, 1]
+
+dayQueue = Queue()
+answer = []
+
+# 프로젝트 공수 일자 계산
+for index, innerProgress in enumerate(progresses):
+  innerProgressDivMod = divmod(100 - innerProgress, speeds[index])
+  day = innerProgressDivMod[0]
+  if innerProgressDivMod[1]:
+    day += 1
+
+  dayQueue.put(day)
+
+dayCnt = 1
+compareDay = dayQueue.get()
+queueSize = dayQueue.qsize()
+
+# 마무리 계산
+for i in range(0, queueSize):
+  innerDay = dayQueue.get()
+  if compareDay >= innerDay:
+    dayCnt += 1
+  else:
+    answer.append(dayCnt)
+    dayCnt = 1
+    compareDay = innerDay
+
+answer.append(dayCnt)
+
+print(answer)
