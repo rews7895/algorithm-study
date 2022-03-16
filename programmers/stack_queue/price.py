@@ -19,3 +19,16 @@
   4초 시점의 ₩2은 1초간 가격이 떨어지지 않았습니다.
   5초 시점의 ₩3은 0초간 가격이 떨어지지 않았습니다.
 """
+prices = [2,3,3,7,7,4,1,5]
+answer = [0] * len(prices)
+
+for i in range(len(prices)):
+  for j in range(i+1, len(prices)):
+    answer[i] += 1          
+    if prices[i] > prices[j]:
+      print(prices[i], prices[j], answer[i])
+      break
+
+print(answer)
+
+

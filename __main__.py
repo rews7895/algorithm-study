@@ -13,5 +13,7 @@ timer.timerStart()
 #! Hash - 4. 베스트앨범
 # from programmers.hash.best_album import *
 #! Stack And Queue - 1. 기능개발
-from programmers.stack_queue.func_dev import *
+# from programmers.stack_queue.func_dev import *
+#! Stack And Queue - 2. 주식가격
+from programmers.stack_queue.price import *
 timer.timerEnd()
