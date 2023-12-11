@@ -15,5 +15,8 @@ timer.timerStart()
 #! Stack And Queue - 1. 기능개발
 # from programmers.stack_queue.func_dev import *
 #! Stack And Queue - 2. 주식가격
-from programmers.stack_queue.price import *
+# from programmers.stack_queue.price import *
 timer.timerEnd()
+
+import sys
+print(sys.version)

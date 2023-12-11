@@ -13,4 +13,4 @@ class ProgramTimer:
 
   def timerEnd(self):
     self.end = time.time() - self.start
-    print('실행 시간: ', round(self.end, 4), '초')
+    print('실행 시간:', round(self.end, 4), '초')
