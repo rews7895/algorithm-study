@@ -29,8 +29,7 @@ limit = 0   # 방향 회전 제어 값으로 4가 되면 동, 서, 남, 북 다 
 maps[col][raw] = 2      # 첫 좌표 다녀온 값으로 변경
 cnt = 1     # 좌표 이동 회수 (첫 좌표도 포함인듯)
 
-while limit < 4:
-    # print(col, raw, direction, limit)
+while True:
     match direction:
         case 0:     # 북
             if maps[col - 1][raw] == 0:     # 각 좌표별 왼쪽 방향이 육지인지 확인
@@ -68,6 +67,28 @@ while limit < 4:
             else:
                 limit += 1
             direction = 2
+    if limit >= 4:  # 후진 조건
+        match direction:
+            case 0:     # 북
+                if maps[col][raw + 1] == 1:     # 북의 후방인 남쪽이 바다일 경우 무한 루프 탈출
+                    break
+                else:
+                    raw += 1    # 후진
+            case 1:
+                if maps[col - 1][raw] == 1:     # 동의 후방인 서쪽이 바다일 경우 무한 루프 탈출
+                    break
+                else:
+                    col -= 1    # 후진
+            case 2:
+                if maps[col][raw - 1] == 1:     # 남의 후방인 북쪽이 바다일 경우 무한 루프 탈출
+                    break
+                else:
+                    raw -= 1    # 후진
+            case 3:
+                if maps[col + 1][raw] == 1:     # 서의 후방인 동쪽이 바다일 경우 무한 루프 탈출
+                    break
+                else:
+                    col += 1    # 후진
 
 print(cnt)
 
