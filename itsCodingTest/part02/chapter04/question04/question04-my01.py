@@ -18,6 +18,7 @@
 1. 먼저 이동할 왼쪽 좌표 확인 후 갈 수 있는 곳이면 이동
 2. 방향 변경은 매 턴마다 한번씩 진행
 3. 걸었던 길은 2로 바꿈
+4. 네 방향 모두 이미 가본 칸이거나 바다로 되어 있는 경우 바라보는 방향을 유지한 채로 한칸 뒤로 간다
 """
 y, x = map(int, input().split())
 col, row, direction = map(int, input().split())
@@ -70,22 +71,22 @@ while True:
     if limit >= 4:  # 후진 조건
         match direction:
             case 0:     # 북
-                if maps[col][row + 1] == 1:     # 북의 후방인 남쪽이 바다일 경우 무한 루프 탈출
+                if maps[col][row + 1] != 0:     # 북의 후방인 남쪽이 바다일 경우 무한 루프 탈출
                     break
                 else:
                     row += 1    # 후진
             case 1:
-                if maps[col - 1][row] == 1:     # 동의 후방인 서쪽이 바다일 경우 무한 루프 탈출
+                if maps[col - 1][row] != 0:     # 동의 후방인 서쪽이 바다일 경우 무한 루프 탈출
                     break
                 else:
                     col -= 1    # 후진
             case 2:
-                if maps[col][row - 1] == 1:     # 남의 후방인 북쪽이 바다일 경우 무한 루프 탈출
+                if maps[col][row - 1] != 0:     # 남의 후방인 북쪽이 바다일 경우 무한 루프 탈출
                     break
                 else:
                     row -= 1    # 후진
             case 3:
-                if maps[col + 1][row] == 1:     # 서의 후방인 동쪽이 바다일 경우 무한 루프 탈출
+                if maps[col + 1][row] != 0:     # 서의 후방인 동쪽이 바다일 경우 무한 루프 탈출
                     break
                 else:
                     col += 1    # 후진
