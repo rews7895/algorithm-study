@@ -1,11 +1,21 @@
 from collections import deque
 
-# N, M을 공백으로 구분하여 입력받기
-n, m = map(int, input().split())
-# 2차원 리스트의 맵 정보 입력받기
-graph = []
-for i in range(n):
-    graph.append(list(map(int, input)))
+# # N, M을 공백으로 구분하여 입력받기
+# n, m = map(int, input().split())
+# # 2차원 리스트의 맵 정보 입력받기
+# graph = []
+# for i in range(n):
+#     graph.append(list(map(int, input)))
+
+n, m = 5, 6
+
+graph = [
+    [1, 0, 1, 0, 1, 0],
+    [1, 1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0, 1],
+    [1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 1],
+]
 
 # 이동할 네 방향 정의(상, 하, 좌, 우)
 dx = [-1, 1, 0, 0]
@@ -38,3 +48,8 @@ def bfs(x, y):
 
 # BFS를 수행한 결과 출력
 print(bfs(0, 0))
+
+for row in graph:
+    for x in row:
+        print(x, end=' ')
+    print()
