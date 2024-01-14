@@ -37,6 +37,7 @@ def dijkstra(start):
                 distance[i[0]] = cost
                 heapq.heappush(q, (cost, i[0]))
 
+
 # 다익스트라 알고리즘을 수행
 dijkstra(start)
 
